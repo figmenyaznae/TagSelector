@@ -1,0 +1,33 @@
+.loader
+  width: 140px
+  height: 23px;
+
+.loader-pin
+  width: 10px
+  height: 10px
+  border:
+    width: 1px
+    style: solid
+    radius: 40%
+
+@keyframes spinning
+  from
+    background-color: black
+  to
+    background-color: white
+    
+@mixin animation ($delay)
+  animation:
+    name: spinning
+    duration: 1s
+    iteration-count: infinite
+    delay: $delay/6+s
+    timing-function: ease-in
+
+@for $i from 1 through 6
+  .loader-pin-#{$i}
+    @extend .loader-pin
+    position: absolute
+    transform: translateX(20px * ($i - 1))
+    @include animation ($i)
+    top: 6px

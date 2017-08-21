@@ -1,0 +1,94 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "loader-pin";
+
+.article
+  margin-bottom: 5px
+  background-color: #F7F7F7
+  padding: 5px
+  border-radius: 5px
+
+.card
+  margin:
+    top: 30px
+    bottom: 30px
+
+.loose 
+  padding: 
+    top: 10px
+    bottom: 10px
+
+.tag-list
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  flex-wrap: wrap
+  
+.selected-header
+  padding-top: 30px
+
+@mixin image
+  width: 120px
+  height: 150px
+  border: 1px solid black
+  background-image: url(https://lorempixel.com/120/160/)
+
+.selected-tag
+  @include image
+  float: left
+  margin: 30px
+
+.tag    
+  margin: 30px
+  text-align: center
+  
+.tag-image
+  @include image
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+
+.tag-title
+  max-width: 120px
+  display: block
+
+@mixin active
+  opacity: 0.9 !important
+  font-size: 18pt !important
+  
+@mixin button($color)
+  display: flex
+  justify-content: center
+  padding:
+    top: 5px
+    bottom: 6px
+  width: 100%
+  align-items: center
+  background: $color
+  opacity: 0.6
+  color: white
+  -webkit-text-stroke: 1px black
+  &:hover
+    @include active
+  font:
+    family: sans-serif
+    size: 14pt
+    weight: bold
+  line-height: 1
+  cursor: pointer
+  -webkit-transition: 0.3s ease-out
+
+.selected
+  @include active
+  
+.lower-panel
+  display: flex
+  
+.compliment
+  @include button(#ff2323)
+  
+.intersect
+  @include button(#2020ff)
+    
+.union
+  @include button(#00e64d)
